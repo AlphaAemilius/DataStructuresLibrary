@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQHLib", "StackerQueuererLib\SQHLib.csproj", "{8C281CFF-14E7-4209-B769-2D0B7CCE6D3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C281CFF-14E7-4209-B769-2D0B7CCE6D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C281CFF-14E7-4209-B769-2D0B7CCE6D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C281CFF-14E7-4209-B769-2D0B7CCE6D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C281CFF-14E7-4209-B769-2D0B7CCE6D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76E823C1-D6A3-4420-8E36-2DC5A164E068}
+	EndGlobalSection
+EndGlobal
