@@ -43,13 +43,8 @@ namespace StackerQueuererLib
 
         public Node _nHead { get; set; }
         private Node _nTail;
-        private Node _current;
         public int size;
-        public Node Current
-        {
-            get { return _current; }
-            set { _current = value; }
-        }
+        public Node Current { get; set; }
 
         public Node this[int i]
         {
@@ -91,7 +86,6 @@ namespace StackerQueuererLib
             Node n = new Node(t);   //new Node
             if (IsEmpty())          //check if empty
             {
-
                 _nHead = n;
                 _nTail = n;
                 size++;

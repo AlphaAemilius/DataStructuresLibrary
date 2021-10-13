@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SunBST.cs" />
     <Compile Include="SunHash.cs" />
     <Compile Include="SunQueue.cs" />
     <Compile Include="SunStack.cs" />
