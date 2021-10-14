@@ -56,7 +56,6 @@ namespace StackerQueuererLib
             size = 0;
         }
 
-
         public T Peek()
         {
             return _nTail.Data;
@@ -101,7 +100,6 @@ namespace StackerQueuererLib
 
         }
 
-
         public bool IsEmpty()
         {
             if (size != 0)
@@ -111,8 +109,6 @@ namespace StackerQueuererLib
             return true;
 
         }
-
-
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -124,7 +120,6 @@ namespace StackerQueuererLib
                 current = current.Next;
             }
         }
-
 
         public void Purge()
         {

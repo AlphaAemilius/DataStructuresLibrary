@@ -48,6 +48,11 @@ namespace StackerQueuererLib
             
         }
 
+        /// <summary>
+        /// Returns specific value based on given key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public V Get(K key)
         {
             int hash = key.GetHashCode() % _table.Length;       //translate to hashcode to find
@@ -76,7 +81,6 @@ namespace StackerQueuererLib
             }
         }
     }
-
 
     internal class KeyValue<K, V>
     {

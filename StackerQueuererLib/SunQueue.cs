@@ -27,6 +27,7 @@ namespace StackerQueuererLib
         private Node _nTail;
         public int Size;
         public Node Current { get; set; }
+
         public Node this[int i]
         {
             get
@@ -55,7 +56,6 @@ namespace StackerQueuererLib
             Current = _nHead;
             Size = 0;
         }
-
 
         public T Peek()
         {
@@ -105,7 +105,6 @@ namespace StackerQueuererLib
 
         }
 
-
         public bool IsEmpty()
         {
             if (Size != 0)
@@ -115,8 +114,6 @@ namespace StackerQueuererLib
             return true;
 
         }
-
-
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -129,11 +126,5 @@ namespace StackerQueuererLib
             }
         }
 
-
-        public void Purge()
-        {
-            _nTail = null;
-
-        }
     }
 }
