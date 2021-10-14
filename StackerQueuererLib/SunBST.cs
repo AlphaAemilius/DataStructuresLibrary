@@ -33,14 +33,104 @@ namespace StackerQueuererLib
             Root = new Node(t);
         }
 
-        private void InOrderTraversal(Node root)
+        /// <summary>
+        /// Always gives you Nodes in sorted manner.
+        /// </summary>
+        public SunQueue<T> TraverseInOrder()
+        {
+            SunQueue<T> outQu = new SunQueue<T>();  //output queue
+            InOrderTraversal(Root,outQu);           //pass by reference
+            return outQu;                           //returns values of Tree
+        }
+        private void InOrderTraversal(Node root, SunQueue<T> outQu)
         {
             if (root != null)
             {
-
+                InOrderTraversal(root.LeftN, outQu);
+                outQu.Enqueue(root.Data);
+                InOrderTraversal(root.RightN, outQu);
             }
         }
 
+        /// <summary>
+        /// Variant of DFS.
+        /// Where atomic operations in a recursive function,
+        /// are as same as Inorder traversal but with a different order.
+        /// Node added before all of its children
+        /// </summary>
+        /// <returns>Queue of Tree values</returns>
+        public SunQueue<T> TraversePreOrder()
+        {
+            SunQueue<T> outQu = new SunQueue<T>();  
+            PreOrderTraversal(Root, outQu);           
+            return outQu;                           
+        }
+        private void PreOrderTraversal(Node root, SunQueue<T> outQu)
+        {
+            if (root != null)
+            {
+                outQu.Enqueue(root.Data);
+                PreOrderTraversal(root.LeftN, outQu);
+                PreOrderTraversal(root.RightN, outQu);
+            }
+        }
+
+        /// <summary>
+        /// Node is only added after all of it's children are added.
+        /// </summary>
+        /// <returns></returns>
+        public SunQueue<T> TraversePostOrder()
+        {
+            SunQueue<T> outQu = new SunQueue<T>();
+            PostOrderTraversal(Root, outQu);
+            return outQu;
+        }
+        private void PostOrderTraversal(Node root, SunQueue<T> outQu)
+        {
+            if (root != null)
+            {
+                PostOrderTraversal(root.LeftN, outQu);
+                PostOrderTraversal(root.RightN, outQu); 
+                outQu.Enqueue(root.Data);
+            }
+        }
+
+        /// <summary>
+        /// Traverse left-to-right at the same level
+        /// </summary>
+        /// <returns></returns>
+        public SunQueue<T> TraverseLevelOrder()
+        {
+            SunQueue<T> outQu = new SunQueue<T>();
+            LevelOrderTraversal(Root, outQu);
+            return outQu;
+        }
+        private void LevelOrderTraversal(Node root, SunQueue<T> outQu)
+        {
+            if (root == null)
+            {
+                return;
+            }
+
+            SunQueue<Node> q = new SunQueue<Node>();
+            q.Enqueue(root);
+
+            while (!q.IsEmpty())
+            {
+                Node n = q.Dequeue();
+                outQu.Enqueue(n.Data);  //for the output of values
+
+                if (n.LeftN != null)
+                {
+                    q.Enqueue(n.LeftN);
+                }
+
+                if (n.RightN != null)
+                {
+                    q.Enqueue(n.RightN);
+                }
+            }
+        }
 
         /// <summary>
         /// Returns the height of a given node within the tree
@@ -67,8 +157,7 @@ namespace StackerQueuererLib
         public bool Contains(T data)
         {
             Node n = Root;
-            while (n != null)
-            {
+            while (n != null){
                 int result = data.CompareTo(n.Data);
                 if (result == 0)
                 {
@@ -105,7 +194,6 @@ namespace StackerQueuererLib
             Size++;
 
         }
-
         private Node AddRecursively(Node rootN, T data)
         {
 
@@ -189,8 +277,7 @@ namespace StackerQueuererLib
             return null; //nothing found
 
         }
-
-
+        
         public void Remove(T data)
         {
             Remove(Root, data);
@@ -234,7 +321,6 @@ namespace StackerQueuererLib
             }
         }
 
-
         /// <summary>
         /// Takes node for removal and node to replace it in its parent node
         /// </summary>
@@ -263,6 +349,7 @@ namespace StackerQueuererLib
                 newNode.Parent = node.Parent;
             }
         }
+
         private Node FindMinimumInSubtree(Node node)
         {
             while (node.LeftN != null)
@@ -273,5 +360,6 @@ namespace StackerQueuererLib
             return node;
         }
 
+        //https://towardsdatascience.com/4-types-of-tree-traversal-algorithms-d56328450846
     }
 }

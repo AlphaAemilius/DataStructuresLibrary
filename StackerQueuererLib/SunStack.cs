@@ -10,32 +10,13 @@ namespace StackerQueuererLib
     {
         public class Node
         {
-            private T _data;
-            public T Data
-            {
-                get { return _data; }
-                set { _data = value; }
-            }
-
-            private Node _next;
-            public Node Next
-            {
-                get { return _next; }
-                set { _next = value; }
-            }
-
-
-            private Node _prev;
-            public Node Prev
-            {
-                get { return _prev; }
-                set { _prev = value; }
-            }
-
+            public T Data { get; set; }
+            public Node Next { get; set; }
+            public Node Prev { get; set; }
             public Node(T t)
             {
-                _prev = null;
-                _next = null;
+                Prev = null;
+                Next = null;
                 Data = t;
             }
         }
