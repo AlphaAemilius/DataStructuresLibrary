@@ -41,7 +41,7 @@ namespace StackerQueuererLib
 
             public override string ToString()
             {
-                return $"Node with ID {id}: {Data}, neighbors: {Neigbors.Count}";
+                return $"Node with ID {id}: {Data}, neighbors: {Neighbors.Count}";
             }
         }
         public class Edge<T>
@@ -171,7 +171,7 @@ namespace StackerQueuererLib
             from.Neighbors.RemoveAt(index);                                    //remove reference of node2 from node1.neighbors
             if (_isWeighted)
             {
-                from.Weights.RemoveAt(index);                                   //if weighted remove corresponding weight in node1.weights
+                from.Weights.RemoveAt(index);                                  //if weighted remove corresponding weight in node1.weights
             }
         }
 
@@ -225,7 +225,7 @@ namespace StackerQueuererLib
             {
                 return true;
             }
-            foreach (Node<T> child in source.Neigbors) //else check all my children
+            foreach (Node<T> child in source.Neighbors) //else check all my children
             {
                 if (hasPathDFS(child, destination, visited))
                 {
@@ -254,7 +254,7 @@ namespace StackerQueuererLib
 
                 visited.Add(node.id);
 
-                foreach (Node<T> child in node.Neigbors)
+                foreach (Node<T> child in node.Neighbors)
                 {
                     nextToVisit.Enqueue(child);
                 }
